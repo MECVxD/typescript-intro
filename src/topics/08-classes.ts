@@ -1,13 +1,20 @@
 export class Person {
-  public name?: string;
-  public addres?: string;
+  // public name?: string;
+  // private addres?: string;
 
-  constructor() {
-    this.name = "Mauricio";
-    this.addres = "New York";
+  constructor(public name: string, private address: string = "No Address") {}
+}
+
+export class Hero extends Person {
+  constructor(
+    public alterEgo: string,
+    public age: number,
+    public realName: string
+  ) {
+    super(realName, "New York");
   }
 }
 
-const ironMan = new Person();
+const ironMan = new Hero("Ironman", 45, "Tony");
 
 console.log(ironMan);
